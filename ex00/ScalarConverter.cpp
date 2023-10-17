@@ -6,7 +6,7 @@
 /*   By: ael-maar <ael-maar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:10:15 by ael-maar          #+#    #+#             */
-/*   Updated: 2023/10/17 19:02:38 by ael-maar         ###   ########.fr       */
+/*   Updated: 2023/10/17 19:18:37 by ael-maar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ void ScalarConverter::convert(const std::string str_literal) {
 
 // Convert to char
 void ScalarConverter::convertToChar(t_type_convert &type, const std::string &str_literal) {
-    if (type.value > CHAR_MAX || type.value < CHAR_MIN || type.end_type.length() > 1
-    || std::isinf(type.value) || std::isnan(type.value))
+    if (type.value > CHAR_MAX || type.value < CHAR_MIN || type.end_type.length() > 1)
         std::cout << "char: Impossible" << std::endl;
     else if (type.end_type == str_literal)
         std::cout << "char: \'" << type.end_type << "\'" << std::endl;
@@ -51,10 +50,10 @@ void ScalarConverter::convertToInt(t_type_convert &type) {
 
 // Convert to float
 void ScalarConverter::convertToFloat(t_type_convert &type) {
-    if (type.value > FLT_MAX || type.value < -FLT_MAX || !type.is_numerical)
-        std::cout << "float: Impossible" << std::endl;
-    else if (std::isinf(type.value) || std::isnan(type.value))
+    if ((std::isinf(type.value) || std::isnan(type.value)) && type.is_numerical)
         std::cout << "float: " << type.value << "f" << std::endl;
+    else if (type.value > FLT_MAX || type.value < -FLT_MAX || !type.is_numerical)
+        std::cout << "float: Impossible" << std::endl;
     else if (static_cast<float>(type.value) == static_cast<int>(type.value))
         std::cout << "float: " << static_cast<float>(type.value) << ".0f" << std::endl;
     else
@@ -63,10 +62,10 @@ void ScalarConverter::convertToFloat(t_type_convert &type) {
 
 // Convert to double
 void ScalarConverter::convertToDouble(t_type_convert &type) {
-    if (type.value > DBL_MAX || type.value < -DBL_MAX || !type.is_numerical)
-        std::cout << "double: Impossible" << std::endl;
-    else if (std::isinf(type.value) || std::isnan(type.value))
+    if ((std::isinf(type.value) || std::isnan(type.value)) && type.is_numerical)
         std::cout << "double: " << type.value << std::endl;
+    else if (type.value > DBL_MAX || type.value < -DBL_MAX || !type.is_numerical)
+        std::cout << "double: Impossible" << std::endl;
     else if (static_cast<double>(type.value) == static_cast<int>(type.value))
         std::cout << "double: " << static_cast<double>(type.value) << ".0" << std::endl;
     else
