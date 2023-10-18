@@ -6,7 +6,7 @@
 /*   By: ael-maar <ael-maar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:10:15 by ael-maar          #+#    #+#             */
-/*   Updated: 2023/10/17 19:18:37 by ael-maar         ###   ########.fr       */
+/*   Updated: 2023/10/18 21:52:01 by ael-maar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void ScalarConverter::convertToInt(t_type_convert &type) {
 void ScalarConverter::convertToFloat(t_type_convert &type) {
     if ((std::isinf(type.value) || std::isnan(type.value)) && type.is_numerical)
         std::cout << "float: " << type.value << "f" << std::endl;
-    else if (type.value > FLT_MAX || type.value < -FLT_MAX || !type.is_numerical)
+    else if (!type.is_numerical)
         std::cout << "float: Impossible" << std::endl;
     else if (static_cast<float>(type.value) == static_cast<int>(type.value))
         std::cout << "float: " << static_cast<float>(type.value) << ".0f" << std::endl;
@@ -64,7 +64,7 @@ void ScalarConverter::convertToFloat(t_type_convert &type) {
 void ScalarConverter::convertToDouble(t_type_convert &type) {
     if ((std::isinf(type.value) || std::isnan(type.value)) && type.is_numerical)
         std::cout << "double: " << type.value << std::endl;
-    else if (type.value > DBL_MAX || type.value < -DBL_MAX || !type.is_numerical)
+    else if (!type.is_numerical)
         std::cout << "double: Impossible" << std::endl;
     else if (static_cast<double>(type.value) == static_cast<int>(type.value))
         std::cout << "double: " << static_cast<double>(type.value) << ".0" << std::endl;
