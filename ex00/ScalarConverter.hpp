@@ -6,7 +6,7 @@
 /*   By: ael-maar <ael-maar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:10:17 by ael-maar          #+#    #+#             */
-/*   Updated: 2023/10/19 13:16:42 by ael-maar         ###   ########.fr       */
+/*   Updated: 2023/10/20 22:08:14 by ael-maar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_type_convert {
     std::string end_type;
     double value;
     bool is_numerical;
+    bool is_float;
 } t_type_convert;
 
 class ScalarConverter
