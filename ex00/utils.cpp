@@ -6,7 +6,7 @@
 /*   By: ael-maar <ael-maar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:00:06 by ael-maar          #+#    #+#             */
-/*   Updated: 2023/10/21 14:12:56 by ael-maar         ###   ########.fr       */
+/*   Updated: 2023/10/21 15:13:55 by ael-maar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ int calc_precision_len(const std::string &str_literal)
     {
         precision_len = 1;
     }
-    return (precision_len);
+    return (precision_len == 0 ? 1 : precision_len);
 }
