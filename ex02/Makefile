@@ -12,7 +12,7 @@ OBJS = $(addprefix $(OBJS_PATH)/, $(SRCS:.cpp=.o))
 
 RM = rm -rf
 
-NAME = base
+NAME = random_base
 
 all: $(NAME)
 
