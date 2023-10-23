@@ -6,7 +6,7 @@
 /*   By: ael-maar <ael-maar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 11:10:17 by ael-maar          #+#    #+#             */
-/*   Updated: 2023/10/21 15:07:49 by ael-maar         ###   ########.fr       */
+/*   Updated: 2023/10/23 12:46:54 by ael-maar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class ScalarConverter
     static void convertToInt(t_type_convert &type);
     static void convertToFloat(t_type_convert &type);
     static void convertToDouble(t_type_convert &type);
+    ScalarConverter();
     public:
         static void convert(const std::string str_literal);
 };
